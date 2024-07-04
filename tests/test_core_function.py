@@ -1,14 +1,14 @@
 """
-    Unit tests for the detect_programming_language function.
+Unit tests for the detect_programming_language function.
 
-    None is used for the expected_language where the result
-    is unknown or it is an edge case
+None is used for the expected_language where the result
+is unknown or it is an edge case
 """
-
 
 from pypacter.language_detector import detect_programming_language
 
-def test_valid_python_code():
+
+def test_valid_python_code() -> None:
     """
     Test a valid Python code.
     """
@@ -18,7 +18,7 @@ def test_valid_python_code():
     assert actual_language == expected_language
 
 
-def test_java_code():
+def test_java_code() -> None:
     """
     Test a valid Java code.
     """
@@ -34,7 +34,7 @@ def test_java_code():
     assert actual_language == expected_language
 
 
-def test_c_code():
+def test_c_code() -> None:
     """
     Test a valid C code.
     """
@@ -51,7 +51,7 @@ def test_c_code():
     assert actual_language == expected_language
 
 
-def test_cpp_code():
+def test_cpp_code() -> None:
     """
     Test a valid C++ code.
     """
@@ -68,7 +68,7 @@ def test_cpp_code():
     assert actual_language == expected_language
 
 
-def test_html_code():
+def test_html_code() -> None:
     """
     Test a valid HTML code/Non programming language.
     """
@@ -85,7 +85,7 @@ def test_html_code():
     assert actual_language == expected_language
 
 
-def test_empty_code():
+def test_empty_code() -> None:
     """
     Test an empty string code.
     """
@@ -95,7 +95,7 @@ def test_empty_code():
     assert actual_language == expected_language
 
 
-def test_non_code_content():
+def test_non_code_content() -> None:
     """
     Test a non-code content like, Natural language etc.
     """
@@ -105,7 +105,7 @@ def test_non_code_content():
     assert actual_language == expected_language
 
 
-def test_multi_language_code():
+def test_multi_language_code() -> None:
     """
     Test string with mutliple programming languages.
     """
@@ -122,7 +122,7 @@ def test_multi_language_code():
     assert actual_language == expected_language
 
 
-def test_unsupported_language():
+def test_unsupported_language() -> None:
     """
     Test string with unsupported programming language.
     """
@@ -132,7 +132,7 @@ def test_unsupported_language():
     assert actual_language == expected_language
 
 
-def test_leading_whitespace():
+def test_leading_whitespace() -> None:
     """
     Test string with leading whitespace.
     """
@@ -142,7 +142,7 @@ def test_leading_whitespace():
     assert actual_language == expected_language
 
 
-def test_trailing_whitespace():
+def test_trailing_whitespace() -> None:
     """
     Test string with trailing whitespace.
     """
@@ -152,7 +152,7 @@ def test_trailing_whitespace():
     assert actual_language == expected_language
 
 
-def test_case_sensitivity():
+def test_case_sensitivity() -> None:
     """
     Test string with case sensitivity.
     """
@@ -162,17 +162,19 @@ def test_case_sensitivity():
     assert actual_language == expected_language
 
 
-def test_comments_only():
+def test_comments_only() -> None:
     """
     Test string with only comments.
     """
     code = "# This is a comment in Python"
-    expected_language = "python"  # Might be language-specific depending on implementation
+    expected_language = (
+        "python"  # Might be language-specific depending on implementation
+    )
     actual_language = detect_programming_language(code)
     assert actual_language == expected_language
 
 
-def test_invalid_syntax():
+def test_invalid_syntax() -> None:
     """
     Test string with invalid syntax.
     """
@@ -182,7 +184,7 @@ def test_invalid_syntax():
     assert actual_language == expected_language
 
 
-def test_large_code_snippet():
+def test_large_code_snippet() -> None:
     """
     Test a large code snippet.
     """
