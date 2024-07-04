@@ -76,7 +76,9 @@ class Reviewer(Runnable[Input, Recommendations]):
         """
         Instantiates a new code reviewer.
         """
-        parser = PydanticOutputParser(pydantic_object=Recommendations)
+        parser: PydanticOutputParser = PydanticOutputParser(
+            pydantic_object=Recommendations
+        )
         self.prompt_template = (
             INSTRUCTIONS.format(format_instructions=parser.get_format_instructions())
             + CODE_TEMPLATE
