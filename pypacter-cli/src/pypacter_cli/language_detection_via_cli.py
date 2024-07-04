@@ -1,4 +1,4 @@
-import argparse
+import argparse  # noqa: D100
 
 from pypacter.language_detector import detect_programming_language
 
@@ -13,7 +13,7 @@ def detect_language_from_file(file_path: str) -> str:
     Returns:
         str: The detected programming language.
     """
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         code_snippet = file.read()
     return detect_programming_language(code_snippet)
 
@@ -29,15 +29,21 @@ def detect_language_from_stdin() -> str:
     return detect_programming_language(code_snippet)
 
 
-def main():
+def main() -> str:
     """
     Main function to parse command-line arguments and execute the appropriate action.
     """
-    parser = argparse.ArgumentParser(description="Detect the programming language of a code snippet.")
+    parser = argparse.ArgumentParser(
+        description="Detect the programming language of a code snippet."
+    )
     source_choices = ["file", "stdin"]  # Pre-define choices for cleaner code
-    parser.add_argument("source", choices=source_choices, help="Specify the source of the code snippet.")
     parser.add_argument(
-        "--file-path", required=lambda args: args.source == "file", help="Path to the code snippet file."
+        "source", choices=source_choices, help="Specify the source of the code snippet."
+    )
+    parser.add_argument(
+        "--file-path",
+        required=lambda args: args.source == "file",
+        help="Path to the code snippet file.",
     )
 
     args = parser.parse_args()
