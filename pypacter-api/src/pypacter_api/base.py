@@ -8,8 +8,8 @@ version information.
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
-from pypacter_api import get_version
 from pypacter.language_detector import detect_programming_language
+from pypacter_api import get_version
 
 router = APIRouter()
 

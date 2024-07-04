@@ -3,6 +3,7 @@ This file tests the language detection API.
 """
 
 import json
+
 import requests
 
 API_URL = "http://localhost:8000/detect-language"

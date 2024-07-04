@@ -49,6 +49,7 @@ local-api = "pypacter_api:local"
 devel-types = [
   "mypy==1.8.0",
   "pydantic~=1.0",
+  "types-requests==2.32.0.20240622 "
 ]
 devel-test = ["pytest", "pytest-cov", "coverage[toml]", "uvicorn"]
 devel = ["pypacter-api[devel-types,devel-test]", "ruff==0.2.2"]
